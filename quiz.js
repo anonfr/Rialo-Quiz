@@ -252,7 +252,7 @@ shareBtn.onclick = () => {
         message = `I took the Rialo Quiz and scored ${score}/${total}. 📚 Let's dive deeper into Rialo! `;
     }
     
-    const tweetText = encodeURIComponent(`${message}\n\nTest your knowledge on Rialo: https://rialo-quiz-eight.vercel.app/\n\n@RialoHQ #Rialo #Quiz #Web3`);
+    const tweetText = encodeURIComponent(`${message}\n\nTest your knowledge on Rialo: https://rialo-quiz-eight.vercel.app/\n\nCreated by @AnonfrXBT for @RialoHQ\n#Rialo #Quiz #Web3`);
     const url = `https://twitter.com/intent/tweet?text=${tweetText}`;
     window.open(url, '_blank');
 };
