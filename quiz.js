@@ -230,7 +230,29 @@ submitBtn.onclick = () => {
 shareBtn.onclick = () => {
     const score = finalScore.textContent;
     const total = totalScore.textContent;
-    const tweetText = encodeURIComponent(`I scored ${score}/${total} on the Rialo Quiz created by @AnonfrXBT for @RialoHQ, Test your knowledge: https://rialo.vercel.app/  `);
+    const percent = (score / total) * 100;
+    
+    let emoji = '🚀';
+    let message = '';
+    
+    if (percent === 100) {
+        emoji = '🔥';
+        message = `I just aced the Rialo Quiz! 🔥 Perfect score ${score}/${total}! I'm a Rialo expert now! `;
+    } else if (percent >= 80) {
+        emoji = '💪';
+        message = `I scored ${score}/${total} on the Rialo Quiz! 💪 Crushing it! `;
+    } else if (percent >= 60) {
+        emoji = '👍';
+        message = `I scored ${score}/${total} on the Rialo Quiz! 👍 Getting there! `;
+    } else if (percent >= 40) {
+        emoji = '🎯';
+        message = `I scored ${score}/${total} on the Rialo Quiz! 🎯 Time to learn more about Rialo! `;
+    } else {
+        emoji = '📚';
+        message = `I took the Rialo Quiz and scored ${score}/${total}. 📚 Let's dive deeper into Rialo! `;
+    }
+    
+    const tweetText = encodeURIComponent(`${message}\n\nTest your knowledge on Rialo: https://rialo-quiz-eight.vercel.app/\n\n@RialoHQ #Rialo #Quiz #Web3`);
     const url = `https://twitter.com/intent/tweet?text=${tweetText}`;
     window.open(url, '_blank');
 };
